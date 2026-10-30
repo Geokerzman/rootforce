@@ -4,7 +4,7 @@ import BrandMark from '@/components/BrandMark';
 import Cloudscape from '@/components/Cloudscape';
 import Flowers from '@/components/Flowers';
 import LanguageSelect from '@/components/LanguageSelect';
-import RedesignIcon from '@/components/RedesignIcon';
+import ServiceIcon from '@/components/ServiceIcon';
 import SunArt from '@/components/SunArt';
 import SiteFooter from '@/components/SiteFooter';
 import VisualEffects from '@/components/VisualEffects';
@@ -59,7 +59,7 @@ export default function Landing({ locale }) {
             <span className="service-number mono">{String(index + 1).padStart(2, '0')}</span>
             <h3>{service.title}<span className="service-en mono">{service.label}</span></h3>
             <p>{service.description}</p>
-            <span className={`service-glyph${service.glyph === '</>' ? ' code-glyph' : ''}`} aria-hidden="true">{service.glyph === 'redesign' ? <RedesignIcon /> : service.glyph}</span>
+            <span className={`service-glyph${service.glyph === '</>' ? ' code-glyph' : ''}`} aria-hidden="true"><ServiceIcon glyph={service.glyph} /></span>
           </article>)}
         </div>
         <div className="studio-process" id="process">
