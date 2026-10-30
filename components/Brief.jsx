@@ -3,24 +3,28 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-export default function Brief() {
+export default function Brief({ labels }) {
   const dialog = useRef(null);
   const [status, setStatus] = useState('');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
-  function downloadBrief(event) {
+  function openEmail(event) {
     event.preventDefault();
     const values = new FormData(event.currentTarget);
-    const content = `ROOTFORCE.DEV — БРИФ\n\nПроект: ${values.get('project')}\n\nИдея:\n${values.get('idea')}\n`;
-    const url = URL.createObjectURL(new Blob([content], { type: 'text/plain;charset=utf-8' }));
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'rootforce-brief.txt';
-    link.click();
-    setTimeout(() => URL.revokeObjectURL(url), 2000);
-    setStatus('Бриф готов. Файл сохранён через загрузки браузера.');
+    const project = String(values.get('project')).trim();
+    const idea = String(values.get('idea')).trim();
+    if (!project || !idea) {
+      event.currentTarget.querySelector(`[name="${project ? 'idea' : 'project'}"]`).focus();
+      return;
+    }
+    const subject = `${labels.emailSubject} — ${project}`;
+    const body = `ROOTFORCE.DEV\r\n\r\n${labels.emailProject}: ${project}\r\n\r\n${labels.emailIdea}:\r\n${idea}\r\n`;
+    const email = document.createElement('a');
+    email.href = `mailto:lkam1hunt@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    email.click();
+    setStatus(labels.status);
   }
 
   function closeOnBackdrop(event) {
@@ -32,17 +36,17 @@ export default function Brief() {
   }
 
   return <>
-    <button className="button dark" id="brief-open" onClick={() => dialog.current.showModal()}>Посадить первую идею <span>↗</span></button>
+    <button className="button dark" id="brief-open" onClick={() => { setStatus(''); dialog.current.showModal(); }}>{labels.open} <span>↗</span></button>
     {mounted && createPortal(<dialog ref={dialog} id="brief" aria-labelledby="brief-title" onClick={closeOnBackdrop}>
-      <form id="brief-form" onSubmit={downloadBrief}>
-        <button type="button" id="brief-close" className="close" aria-label="Закрыть" onClick={() => dialog.current.close()}>×</button>
-        <p className="mono">ПЕРВЫЙ ШАГ / ВАША ИДЕЯ</p>
-        <h2 id="brief-title">С чего начнём?</h2>
-        <p>Соберите короткий бриф и сохраните его себе. Данные никуда не отправляются.</p>
-        <label>Как называется проект?<input name="project" placeholder="Название или рабочая идея" required maxLength={100} /></label>
-        <label>Что хочется создать?<textarea name="idea" rows={4} placeholder="Для кого ваш продукт и какую задачу он решает?" required maxLength={3000} /></label>
-        <button className="button dark" type="submit">Скачать бриф <span>↓</span></button>
-        <p id="brief-status" aria-live="polite">{status}</p>
+      <form id="brief-form" onSubmit={openEmail}>
+        <button type="button" id="brief-close" className="close" aria-label={labels.close} onClick={() => dialog.current.close()}>×</button>
+        <p className="mono">{labels.eyebrow}</p>
+        <h2 id="brief-title">{labels.title}</h2>
+        <p>{labels.description}</p>
+        <label>{labels.project}<input name="project" placeholder={labels.projectPlaceholder} required maxLength={100} /></label>
+        <label>{labels.idea}<textarea name="idea" rows={4} placeholder={labels.ideaPlaceholder} required maxLength={1500} /></label>
+        <button className="button dark" type="submit">{labels.submit} <span>↗</span></button>
+        <p id="brief-status" aria-live="polite">{status && <>{status} <a href="mailto:lkam1hunt@gmail.com">lkam1hunt@gmail.com</a>.</>}</p>
       </form>
     </dialog>, document.body)}
   </>;

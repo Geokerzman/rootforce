@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="rootforce" x1="12" y1="6" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#eef7db"/>
+      <stop offset=".5" stop-color="#e2ece6"/>
+      <stop offset="1" stop-color="#cec3ed"/>
+    </linearGradient>
+    <path id="ray" d="M28 23h8V13l-8-8-6 6 6 6Z"/>
+    <mask id="symbol"><g fill="#fff"><use href="#ray"/><use href="#ray" transform="rotate(45 32 32)"/><use href="#ray" transform="rotate(90 32 32)"/><use href="#ray" transform="rotate(135 32 32)"/><use href="#ray" transform="rotate(180 32 32)"/><use href="#ray" transform="rotate(225 32 32)"/><use href="#ray" transform="rotate(270 32 32)"/><use href="#ray" transform="rotate(315 32 32)"/></g></mask>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0c1015"/>
+  <rect width="64" height="64" fill="url(#rootforce)" mask="url(#symbol)"/>
+</svg>

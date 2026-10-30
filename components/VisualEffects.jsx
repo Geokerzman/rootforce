@@ -2,13 +2,11 @@
 
 import { useEffect } from 'react';
 import { setupAscii } from '@/lib/ascii';
-import { paintClouds } from '@/lib/cloud-texture';
 
-export default function VisualEffects() {
+export default function VisualEffects({ labels }) {
   useEffect(() => {
-    const cleanup = setupAscii();
-    paintClouds();
+    const cleanup = setupAscii(labels);
     return cleanup;
-  }, []);
+  }, [labels]);
   return null;
 }

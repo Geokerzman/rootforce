@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "assets:clouds": "node scripts/generate-cloud-texture.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "serve out"
@@ -13,7 +14,8 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "serve": "^14.2.4"
+    "serve": "^14.2.4",
+    "sharp": "^0.35.5"
   },
   "overrides": {
     "compression": "^1.8.2"
