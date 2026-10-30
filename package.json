@@ -1,0 +1,21 @@
+{
+  "name": "rootforce",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "serve out"
+  },
+  "dependencies": {
+    "next": "^16.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  },
+  "overrides": {
+    "compression": "^1.8.2"
+  }
+}
