@@ -212,3 +212,81 @@ header nav .nav-cta {
     gap: 4px 24px;
   }
 }
+
+.hero-offer {
+  max-width: 720px;
+  margin: 28px auto 0;
+  padding: 0 12px;
+  color: #35412c;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: -.025em;
+  text-align: center;
+  text-wrap: balance;
+}
+
+@media (max-width: 700px) {
+  .hero-offer {
+    max-width: 420px;
+    margin-top: 22px;
+    padding: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    letter-spacing: -.015em;
+  }
+
+  .hero-bottom {
+    margin-top: 24px;
+    margin-bottom: 44px;
+  }
+}
+
+.hero-footer {
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.hero-footer .motion-toggle {
+  position: static;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+@media (min-width: 701px) and (max-height: 800px) {
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero .window {
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+
+  .hero-copy > .eyebrow {
+    margin-bottom: 18px;
+  }
+
+  .hero-offer {
+    margin-top: 22px;
+  }
+
+  .hero-bottom {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 700px) and (max-height: 740px) {
+  .hero .window {
+    margin-top: 24px;
+    margin-bottom: 20px;
+  }
+
+  .hero-copy > .eyebrow {
+    margin-bottom: 18px;
+  }
+
+  .hero-offer {
+    margin-top: 18px;
+  }
+}

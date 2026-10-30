@@ -39,9 +39,10 @@ export default function Landing({ locale }) {
         <div className="hero-copy">
           <p className="eyebrow mono">{t.hero.eyebrow}</p>
           <h1>{t.hero.title[0]}<br />{t.hero.title[1]}<span className="serif">{t.hero.title[2]}</span><BrandMark className="hero-brand-mark" /></h1>
+          <p className="hero-offer">{t.hero.offer}</p>
           <div className="hero-bottom"><p><Lines lines={t.hero.description} /></p><a className="button dark" href="#approach">{t.hero.cta}<span>↓</span></a></div>
         </div>
-        <div className="hero-footer mono"><span>{t.hero.chapter}</span><span>{t.hero.motto}</span><a href="#approach">{t.hero.scroll}</a></div>
+        <div className="hero-footer mono"><span>{t.hero.chapter}</span><span>{t.hero.motto}</span><a href="#approach">{t.hero.scroll}</a><button className="motion-toggle" type="button" aria-pressed="true">{t.motion.active}</button></div>
       </section>
       <section id="approach" className="approach studio">
         <Cloudscape />
