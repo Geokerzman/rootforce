@@ -97,7 +97,7 @@ export default function ServicePage({ locale, slug }) {
 
       <section className="service-related" aria-labelledby="service-related-title">
         <p className="service-kicker mono">{ui.related}</p><h2 id="service-related-title">{ui.relatedTitle}</h2>
-        <div>{serviceSlugs.filter(item => item !== slug).map(item => <a key={item} href={servicePath(locale, item)}><span>{servicePages[locale][item].name}</span><span aria-hidden="true">↗</span></a>)}</div>
+        <div>{serviceSlugs.filter(item => item !== slug).map(item => <a key={item} href={servicePath(locale, item)}><span>{servicePages[locale][item].name}</span><span aria-hidden="true"><ServiceIcon glyph="consulting" /></span></a>)}</div>
       </section>
 
       <section className="garden service-contact" id="contact">
