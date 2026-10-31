@@ -290,3 +290,7 @@ header nav .nav-cta {
     margin-top: 18px;
   }
 }
+
+#brief .brief-privacy { font-size: 12px; line-height: 1.7; }
+#brief .brief-privacy a { text-decoration: underline; text-underline-offset: 3px; }
+#brief button:disabled { opacity: .65; cursor: default; transform: none; }

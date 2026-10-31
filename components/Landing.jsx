@@ -76,7 +76,7 @@ export default function Landing({ locale }) {
           <p className="eyebrow">{t.contact.eyebrow}</p>
           <h2>{t.contact.title[0]}<br />{t.contact.title[1]}<em>{t.contact.title[2]}</em></h2>
           <p><Lines lines={t.contact.description} /></p>
-          <Brief labels={t.brief} />
+          <Brief labels={t.brief} locale={locale} />
           <span className="garden-note mono">{t.contact.note}</span>
         </div>
         <Flowers />
