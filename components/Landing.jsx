@@ -9,6 +9,7 @@ import SunArt from '@/components/SunArt';
 import SiteFooter from '@/components/SiteFooter';
 import VisualEffects from '@/components/VisualEffects';
 import { messages } from '@/lib/i18n';
+import { servicePath } from '@/lib/services';
 import { Fragment } from 'react';
 
 function Lines({ lines }) {
@@ -58,7 +59,7 @@ export default function Landing({ locale }) {
           <div className="services-label mono">{t.studio.servicesLabel}<span>↓</span></div>
           {t.studio.services.map((service, index) => <article className="service-row" key={service.title}>
             <span className="service-number mono">{String(index + 1).padStart(2, '0')}</span>
-            <h3>{service.title}<span className="service-en mono">{service.label}</span></h3>
+            <h3>{service.slug ? <a className="service-title-link" href={servicePath(locale, service.slug)}>{service.title}</a> : service.title}<span className="service-en mono">{service.label}</span></h3>
             <p>{service.description}</p>
             <span className={`service-glyph${service.glyph === '</>' ? ' code-glyph' : ''}`} aria-hidden="true"><ServiceIcon glyph={service.glyph} /></span>
           </article>)}

@@ -294,3 +294,13 @@ header nav .nav-cta {
 #brief .brief-privacy { font-size: 12px; line-height: 1.7; }
 #brief .brief-privacy a { text-decoration: underline; text-underline-offset: 3px; }
 #brief button:disabled { opacity: .65; cursor: default; transform: none; }
+
+.service-title-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #a9b5bd66;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+  transition: color .2s, text-decoration-color .2s;
+}
+.service-title-link:hover { color: #c9e7b3; text-decoration-color: currentColor; }

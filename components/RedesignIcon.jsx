@@ -1,14 +1,14 @@
-export default function RedesignIcon() {
+export default function RedesignIcon({ size = 40 }) {
   return <svg
     viewBox="0 0 34 34"
-    width="40"
-    height="40"
+    width={size}
+    height={size}
     fill="none"
     stroke="currentColor"
     strokeWidth="1.1"
     strokeLinecap="round"
     strokeLinejoin="round"
-    style={{ display: 'block', width: '100%', maxWidth: 40, height: 'auto', marginLeft: 'auto' }}
+    style={{ display: 'block', width: '100%', maxWidth: size, height: 'auto', marginLeft: 'auto' }}
     aria-hidden="true"
     focusable="false"
   >
