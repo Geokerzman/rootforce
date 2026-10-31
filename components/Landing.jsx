@@ -10,6 +10,8 @@ import SiteFooter from '@/components/SiteFooter';
 import VisualEffects from '@/components/VisualEffects';
 import { messages } from '@/lib/i18n';
 import { servicePath } from '@/lib/services';
+import StructuredData from '@/components/StructuredData';
+import { homeStructuredData } from '@/lib/structured-data';
 import { Fragment } from 'react';
 
 function Lines({ lines }) {
@@ -20,6 +22,7 @@ export default function Landing({ locale }) {
   const t = messages[locale];
 
   return <>
+    <StructuredData data={homeStructuredData(locale)} />
     <header>
       <Brand label={t.homeLabel} />
       <nav aria-label={t.navigation}>
@@ -57,7 +60,7 @@ export default function Landing({ locale }) {
         </div>
         <div className="studio-services">
           <div className="services-label mono">{t.studio.servicesLabel}<span>↓</span></div>
-          {t.studio.services.map((service, index) => <article className="service-row" key={service.title}>
+          {t.studio.services.map((service, index) => <article className="service-row" key={service.title} id={service.slug || 'advertising'}>
             <span className="service-number mono">{String(index + 1).padStart(2, '0')}</span>
             <h3>{service.slug ? <a className="service-title-link" href={servicePath(locale, service.slug)}>{service.title}</a> : service.title}<span className="service-en mono">{service.label}</span></h3>
             <p>{service.description}</p>

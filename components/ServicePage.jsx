@@ -7,6 +7,8 @@ import LanguageSelect from '@/components/LanguageSelect';
 import ServiceIcon from '@/components/ServiceIcon';
 import SiteFooter from '@/components/SiteFooter';
 import VisualEffects from '@/components/VisualEffects';
+import StructuredData from '@/components/StructuredData';
+import { serviceStructuredData } from '@/lib/structured-data';
 import { localePath, messages } from '@/lib/i18n';
 import { serviceGlyphs, servicePages, servicePath, serviceSlugs, serviceUi } from '@/lib/services';
 import './ServicePage.css';
@@ -21,6 +23,7 @@ export default function ServicePage({ locale, slug }) {
   const index = serviceSlugs.indexOf(slug);
 
   return <div className={`service-page service-page--${slug}`}>
+    <StructuredData data={serviceStructuredData(locale, slug)} />
     <header className="service-header">
       <Brand label={t.homeLabel} href={home} />
       <nav aria-label={t.navigation}>
@@ -33,12 +36,14 @@ export default function ServicePage({ locale, slug }) {
       <section className="hero service-hero" id="home">
         <Cloudscape priority />
         <div className="service-hero-inner">
-          <a className="service-back mono" href={`${home}#approach`}>← {ui.back}</a>
+          <nav className="service-breadcrumb mono" aria-label={{ en: 'Breadcrumb', de: 'Brotkrumennavigation', ru: 'Навигационная цепочка' }[locale]}>
+            <a href={home}>{{ en: 'Home', de: 'Startseite', ru: 'Главная' }[locale]}</a><span aria-hidden="true">/</span><span aria-current="page">{content.name}</span>
+          </nav>
           <div className="service-hero-grid">
             <div className="service-hero-copy">
               <p className="service-kicker mono">{ui.section} / {number(index)}</p>
-              <p className="service-name">{content.name}</p>
-              <h1>{content.title[0]}<br /><span>{content.title[1]}</span></h1>
+              <h1 className="service-name">{content.name}</h1>
+              <p className="service-display-title">{content.title[0]}<br /><span>{content.title[1]}</span></p>
               <p className="service-hero-lead">{content.intro}</p>
               <div className="service-hero-actions">
                 <a className="button dark" href="#contact">{ui.discuss}<span aria-hidden="true">↗</span></a>

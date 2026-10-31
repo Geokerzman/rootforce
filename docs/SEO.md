@@ -1,0 +1,52 @@
+# Поисковая видимость rootforce.dev
+
+Цель: международные клиенты без привязки к одной стране. Английский — основной язык, немецкий и русский — самостоятельные переведённые версии. Это техническая и содержательная подготовка к поиску, а не гарантия индексации, позиций или рекомендаций AI.
+
+## Что реализовано
+
+- Статический HTML с текстом услуг, рабочими ссылками, FAQ и одной H1 на страницу. Доступность основного текста не зависит от JavaScript.
+- Уникальные title и description для главной и пяти услуг на EN, DE, RU. Видимая H1 лендинга называет услугу, фирменный слоган сохранён отдельно.
+- Canonical на собственный URL каждой языковой версии; взаимные hreflang en/de/ru и x-default на английскую версию. Языки не привязаны к отдельным странам.
+- `/sitemap.xml`: 24 URL — три главные, 15 страниц услуг и шесть юридических страниц. Даты изменения не выдумываются при каждой сборке.
+- `/robots.txt`: открытый обход и sitemap; отдельно разрешён OAI-SearchBot для поисковых ответов ChatGPT. Политики обучения моделей в Cloudflare не меняются.
+- JSON-LD: Organization и WebSite, WebPage и каталог реальных услуг на главной; Service и BreadcrumbList на страницах услуг. Нет выдуманных оценок, цен, наград, клиентов или географии обслуживания.
+- Видимые хлебные крошки и связанные услуги. Рекламная услуга остаётся на главной по предыдущему решению владельца.
+- Open Graph и Twitter Card с фирменным PNG-превью 1200×630 и PNG-логотипом 512×512. Воспроизведение: `node scripts/generate-seo-assets.mjs`.
+
+## Карта запросов
+
+Ниже — смысловые группы, а не оценка частотности или обещание позиций. Под каждую группу существует один лендинг на каждом языке.
+
+| Страница после языкового префикса | EN | DE | RU |
+| --- | --- | --- | --- |
+| `/services/redesign/` | website redesign, digital product redesign, UX audit | Website-Redesign, Produkt-Redesign, UX-Audit | редизайн сайта, редизайн продукта, UX-аудит |
+| `/services/design/` | website design, product UI/UX design, design from scratch | Webdesign, UI/UX-Design, Produktdesign | дизайн сайта с нуля, UI/UX-дизайн продукта |
+| `/services/development/` | app development, MVP development, web product development | App-Entwicklung, MVP-Entwicklung, Webprodukt-Entwicklung | разработка приложений, разработка MVP, веб-продукты |
+| `/services/ai-code-repair/` | fix AI-generated website, vibe coding bugs, AI code repair | KI-Website reparieren, Vibe-Coding-Fehler, KI-Code reparieren | исправить AI-сайт, ошибки вайбкодинга, доработка AI-кода |
+| `/services/consulting/` | design consulting, development consulting, startup consulting | Designberatung, Entwicklungsberatung, Startup-Beratung | консультации по дизайну, разработке, для стартапов |
+| Главная, `#advertising` | ad campaign setup, ad account setup | Werbekonten einrichten, Werbekampagnen einrichten | настройка рекламных кабинетов, настройка рекламы |
+
+## После публикации: действия владельца
+
+1. В [Google Search Console](https://search.google.com/search-console/) добавить Domain property `rootforce.dev`. Полученный TXT-код добавить в DNS именно этого домена в Cloudflare, не удаляя существующие записи. Доступ к аккаунтам и код подтверждения в проекте не предоставлены, поэтому верификация не выполнена автоматически.
+2. После верификации отправить `https://rootforce.dev/sitemap.xml` в разделе Sitemaps. Через URL Inspection проверить главную и ключевые страницы услуг, затем при необходимости запросить индексацию. Это запрос, не гарантия включения в индекс.
+3. Добавить сайт в [Bing Webmaster Tools](https://www.bing.com/webmasters/) или импортировать подтверждённый сайт из Search Console; отправить тот же sitemap.
+4. В Cloudflare проверить WAF, Bot Fight Mode и AI Crawl Control: поисковые Googlebot, Bingbot и OAI-SearchBot должны получать настоящий HTML без блокировки или интерактивной проверки. Разрешение в robots.txt не отменяет сетевую блокировку. Не отключать защиту всего аккаунта или соседних доменов ради этого сайта; правила должны касаться rootforce.dev и проверенных ботов.
+5. Следить за индексированием, реальными запросами, показами и переходами в Search Console/Bing. По этим данным уточнять тексты и темы следующих страниц. Без доступа к этим кабинетам нельзя подтвердить позиции, спрос или полноту индексации.
+
+## Что дальше улучшает содержание
+
+Публиковать реальные кейсы с задачей, процессом, ролью rootforce и проверяемым результатом; примеры исправлений AI-кода с разрешения клиента; полезные разборы конкретных проблем. Отзывы и цифры добавляются только при наличии реальных данных и разрешения. Новые страницы должны отвечать отдельной задаче, а не дублировать лендинг ради варианта ключевой фразы.
+
+Собственные контакты, описание услуг, FAQ и юридические реквизиты должны оставаться согласованными. Обновлять sitemap при добавлении страниц через существующий генератор. Не добавлять фиктивный адрес в другой стране для международного позиционирования.
+
+## AI-поиск
+
+Google не требует отдельного `llms.txt`, специальной AI-разметки или особого SEO для AI Overviews. Основы — индексируемый полезный текст, внутренняя навигация и доступный сайт. `OAI-SearchBot` отвечает за поисковую видимость в ChatGPT; это отдельный механизм от `GPTBot`, связанного с обучением моделей. Само разрешение обхода и структурированные данные не гарантируют рекомендаций.
+
+Официальные источники:
+
+- [Google: AI features and your website](https://developers.google.com/search/docs/appearance/ai-features)
+- [Google: localized versions](https://developers.google.com/search/docs/specialty/international/localized-versions)
+- [Google: Organization structured data](https://developers.google.com/search/docs/appearance/structured-data/organization)
+- [OpenAI: overview of crawlers](https://developers.openai.com/api/docs/bots)

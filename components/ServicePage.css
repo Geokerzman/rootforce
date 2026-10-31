@@ -15,11 +15,12 @@
 }
 .service-hero > .cloudscape { opacity: .26; background-size: 100% 650px; }
 .service-hero-inner { position: relative; z-index: 2; max-width: 1440px; margin: auto; }
-.service-back { display: inline-block; padding: 8px 0; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
+.service-breadcrumb { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 12px; padding: 8px 0; font-size: 12px; line-height: 1.7; }
+.service-page .service-breadcrumb a { display: inline; text-decoration: underline; text-underline-offset: 4px; }
 .service-hero-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(280px, .8fr); gap: 6%; align-items: center; padding: 60px 0 70px; }
 .service-kicker { margin: 0 0 24px; font-size: 11px; line-height: 1.7; letter-spacing: .06em; }
-.service-name { font-size: 16px; color: #536147; margin: 0 0 20px; line-height: 1.6; }
-.service-page .service-hero h1 {
+.service-page .service-hero .service-name { font-size: 16px; font-weight: 400; text-align: left; letter-spacing: 0; color: #536147; margin: 0 0 20px; line-height: 1.6; }
+.service-page .service-hero .service-display-title {
   font-size: clamp(42px, 4.8vw, 78px);
   font-weight: 600;
   line-height: 1.06;
@@ -28,7 +29,7 @@
   margin: 0 0 28px;
   text-wrap: balance;
 }
-.service-hero h1 span { color: #536147; }
+.service-display-title span { color: #536147; }
 .service-hero-lead { max-width: 640px; font-size: 18px; line-height: 1.8; color: #45513d; margin: 0; text-wrap: pretty; }
 .service-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 34px; }
 .service-hero-actions .button { font-size: 15px; }
@@ -105,7 +106,7 @@
 }
 @media (max-width: 1000px) {
   .service-hero-grid { grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr); gap: 5%; padding-top: 45px; }
-  .service-page .service-hero h1 { font-size: 48px; }
+  .service-page .service-hero .service-display-title { font-size: 48px; }
   .service-hero-lead { font-size: 16px; }
   .service-page .service-board { transform: none; box-shadow: 7px 7px 0 #35412c13; }
   .service-board-art { height: 200px; }
@@ -120,11 +121,11 @@
   .service-header nav { gap: 10px; }
   .service-header .service-header-home, .service-header .nav-cta { display: none; }
   .service-page .service-hero { padding: 24px 6% 0; }
-  .service-back { font-size: 11px; }
+  .service-breadcrumb { font-size: 11px; }
   .service-hero-grid { grid-template-columns: minmax(0, 1fr); padding: 35px 0 40px; gap: 45px; }
   .service-kicker { font-size: 10px; margin-bottom: 20px; }
-  .service-name { font-size: 14px; margin-bottom: 18px; }
-  .service-page .service-hero h1 { font-size: clamp(36px, 8.6vw, 52px); line-height: 1.1; margin-bottom: 24px; }
+  .service-page .service-hero .service-name { font-size: 14px; margin-bottom: 18px; }
+  .service-page .service-hero .service-display-title { font-size: clamp(36px, 8.6vw, 52px); line-height: 1.1; margin-bottom: 24px; }
   .service-hero-lead { font-size: 16px; line-height: 1.8; }
   .service-hero-actions { gap: 20px; margin-top: 28px; }
   .service-hero-actions .button { padding: 17px 18px; gap: 20px; font-size: 14px; }
