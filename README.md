@@ -30,6 +30,9 @@ npm start
 
 Используется `output: 'export'`: Node.js на хостинге не требуется. Для серверных API или Server Actions потребуется изменить режим сборки и хостинг.
 
+Деплой на `rootforce.dev` и автоматическое обновление после успешного GitHub CI описаны в
+[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
 ## Структура
 
 - `app/(english)/` — страница и корневой layout английской версии.

@@ -3,6 +3,7 @@ node_modules/
 .next/
 out/
 .idea/
+.deployment-local/
 *.log
 .env*
 !.env.example
