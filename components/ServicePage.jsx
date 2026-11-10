@@ -21,6 +21,8 @@ export default function ServicePage({ locale, slug }) {
   const content = servicePages[locale][slug];
   const home = localePath(locale);
   const index = serviceSlugs.indexOf(slug);
+  const ServiceName = content.headline ? 'p' : 'h1';
+  const HeroTitle = content.headline ? 'h1' : 'p';
 
   return <div className={`service-page service-page--${slug}`}>
     <StructuredData data={serviceStructuredData(locale, slug)} />
@@ -42,8 +44,8 @@ export default function ServicePage({ locale, slug }) {
           <div className="service-hero-grid">
             <div className="service-hero-copy">
               <p className="service-kicker mono">{ui.section} / {number(index)}</p>
-              <h1 className="service-name">{content.name}</h1>
-              <p className="service-display-title">{content.title[0]}<br /><span>{content.title[1]}</span></p>
+              <ServiceName className="service-name">{content.name}</ServiceName>
+              <HeroTitle className="service-display-title">{content.headline || <>{content.title[0]}<br /><span>{content.title[1]}</span></>}</HeroTitle>
               <p className="service-hero-lead">{content.intro}</p>
               <div className="service-hero-actions">
                 <a className="button dark" href="#contact">{ui.discuss}<span aria-hidden="true">↗</span></a>
