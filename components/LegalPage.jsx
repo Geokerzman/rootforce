@@ -1,8 +1,10 @@
 import Brand from '@/components/Brand';
 import LanguageSelect from '@/components/LanguageSelect';
 import SiteFooter from '@/components/SiteFooter';
+import StructuredData from '@/components/StructuredData';
 import { localePath, messages } from '@/lib/i18n';
 import { legalDocuments, legalUi, provider } from '@/lib/legal';
+import { legalStructuredData } from '@/lib/structured-data';
 import './LegalPage.css';
 
 function Contents({ sections, label }) {
@@ -32,6 +34,7 @@ export default function LegalPage({ locale, document }) {
   const home = localePath(locale);
 
   return <div className="legal-page">
+    <StructuredData data={legalStructuredData(locale, document)} />
     <header className="legal-header">
       <Brand label={t.homeLabel} href={home} />
       <nav className="legal-header-nav" aria-label={t.navigation}>

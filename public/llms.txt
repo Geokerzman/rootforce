@@ -1,0 +1,49 @@
+# rootforce.dev
+
+> Full-cycle web development and design agency for startups and small businesses. Services include website and product design and redesign, app and web product development, AI-generated code repair, advertising account setup, and consulting.
+
+rootforce is an independent digital studio. Collaboration is available in English, German, and Russian. The English homepage is the default; German and Russian pages provide localized service descriptions. The linked pages contain server-rendered text, service scope, process, and frequently asked questions.
+
+## Overview
+
+- [English homepage](https://rootforce.dev/): Studio overview, all six services, working process, and project inquiry form.
+- [Deutsche Startseite](https://rootforce.dev/de/): Full-Service-Agentur für Webentwicklung und Design für Startups und kleine Unternehmen.
+- [Главная на русском](https://rootforce.dev/ru/): Агентство веб-разработки и дизайна полного цикла для стартапов и малого бизнеса.
+- [Project inquiries](https://rootforce.dev/#contact): Discuss a project using the contact form or the email link shown on the site.
+
+## Services in English
+
+- [Website and product redesign](https://rootforce.dev/services/redesign/): UX audit, structure, navigation, responsive interfaces, and reusable components for existing websites and products.
+- [Website and product design from scratch](https://rootforce.dev/services/design/): Visual direction, UX wireframes, responsive UI, and design systems.
+- [App and web product development](https://rootforce.dev/services/development/): Apps, MVPs, frontend, backend, integrations, testing, and launch preparation.
+- [AI code repair](https://rootforce.dev/services/ai-code-repair/): Diagnose and repair AI-generated websites, broken forms and integrations, mobile layout issues, and fragile code.
+- [Advertising account setup](https://rootforce.dev/#advertising): Advertising accounts, analytics, conversion tracking, and campaign launch preparation.
+- [Expert consulting](https://rootforce.dev/services/consulting/): Practical advice on design, development, and advertising, with prioritized next steps.
+
+## Leistungen auf Deutsch
+
+- [Website- und Produkt-Redesign](https://rootforce.dev/de/services/redesign/): UX-Audit, Struktur, Navigation und responsive Interfaces.
+- [Webdesign und Produktdesign von Grund auf](https://rootforce.dev/de/services/design/): Visuelle Richtung, UX-Prototypen, UI und Designsysteme.
+- [App- und Webprodukt-Entwicklung](https://rootforce.dev/de/services/development/): Apps, MVPs, Frontend, Backend und Integrationen.
+- [KI-Code reparieren](https://rootforce.dev/de/services/ai-code-repair/): Fehler in KI-generierten Websites, Formularen, Integrationen und mobilen Layouts beheben.
+- [Werbekonten einrichten](https://rootforce.dev/de/#advertising): Werbekonten, Analytics, Conversion-Tracking und Kampagnenvorbereitung.
+- [Persönliche Beratung](https://rootforce.dev/de/services/consulting/): Beratung zu Design, Entwicklung und Werbung.
+
+## Услуги на русском
+
+- [Редизайн сайтов и продуктов](https://rootforce.dev/ru/services/redesign/): UX-аудит, структура, навигация и адаптивные интерфейсы.
+- [Дизайн сайтов и продуктов с нуля](https://rootforce.dev/ru/services/design/): Визуальное направление, UX-прототипы, UI и дизайн-системы.
+- [Разработка приложений и веб-продуктов](https://rootforce.dev/ru/services/development/): Приложения, MVP, frontend, backend и интеграции.
+- [Исправление AI-кода](https://rootforce.dev/ru/services/ai-code-repair/): Ошибки вайбкодинга, сломанные формы и интеграции, мобильная вёрстка и рефакторинг.
+- [Настройка рекламных кабинетов](https://rootforce.dev/ru/#advertising): Рекламные кабинеты, аналитика, отслеживание конверсий и подготовка кампаний.
+- [Консультации](https://rootforce.dev/ru/services/consulting/): Практические рекомендации по дизайну, разработке и рекламе.
+
+## Optional
+
+- [Legal notice](https://rootforce.dev/impressum/): Website provider and legal contact details in English.
+- [Privacy policy](https://rootforce.dev/datenschutz/): Data processing information in English.
+- [Impressum](https://rootforce.dev/de/impressum/): Anbieterkennzeichnung auf Deutsch.
+- [Datenschutzerklärung](https://rootforce.dev/de/datenschutz/): Informationen zur Datenverarbeitung auf Deutsch.
+- [Правовая информация](https://rootforce.dev/ru/impressum/): Сведения о владельце сайта на русском.
+- [Политика конфиденциальности](https://rootforce.dev/ru/datenschutz/): Информация об обработке данных на русском.
+- [XML sitemap](https://rootforce.dev/sitemap.xml): Complete list of localized public pages.

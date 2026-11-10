@@ -42,7 +42,7 @@ export default function Landing({ locale }) {
         </div>
         <div className="hero-copy">
           <p className="eyebrow mono">{t.hero.eyebrow}</p>
-          <h1>{t.hero.title[0]}<br />{t.hero.title[1]}<span className="serif">{t.hero.title[2]}</span><BrandMark className="hero-brand-mark" /></h1>
+          <h1 className="hero-title">{t.hero.title[0]}{' '}<br />{t.hero.title[1]}<span className="serif">{t.hero.title[2]}</span><BrandMark className="hero-brand-mark" /></h1>
           <p className="hero-offer">{t.hero.offer}</p>
           <div className="hero-bottom"><p><Lines lines={t.hero.description} /></p><a className="button dark" href="#approach">{t.hero.cta}<span>↓</span></a></div>
         </div>
