@@ -14,6 +14,8 @@ class Page(HTMLParser):
         self.language = None
         self.canonical = None
         self.resources = []
+        self.icons = []
+        self.robots = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -21,6 +23,10 @@ class Page(HTMLParser):
             self.language = attrs.get('lang')
         if tag == 'link' and attrs.get('rel') == 'canonical':
             self.canonical = attrs.get('href')
+        if tag == 'link' and attrs.get('rel') == 'icon':
+            self.icons.append(attrs.get('href'))
+        if tag == 'meta' and attrs.get('name', '').lower() == 'robots':
+            self.robots.extend(value.strip().lower() for value in attrs.get('content', '').split(','))
         for name in ('src', 'href', 'poster'):
             if name in attrs:
                 self.resources.append(attrs[name])
@@ -50,6 +56,8 @@ def validate(directory):
             require(page.language == language, f'Wrong lang: {path}')
             require(page.canonical == url, f'Wrong canonical: {path}: {page.canonical}')
             require('rootforce' in html.lower(), f'Invalid page: {path}')
+            require(not {'noindex', 'none'}.intersection(page.robots), f'Page blocked from indexing: {path}')
+            require(page.icons == ['/favicon.ico', '/icon.svg'], f'Unexpected favicon URLs: {path}: {page.icons}')
             expected.add(url)
 
     references = 0
@@ -79,10 +87,13 @@ def validate(directory):
 
     sitemap = ET.parse(base / 'sitemap.xml')
     urls = {node.text for node in sitemap.findall('.//{*}loc')}
-    require(expected <= urls, f'Missing sitemap URLs: {expected - urls}')
-    for name in ('404.html', 'robots.txt', 'llms.txt'):
+    require(expected == urls, f'Unexpected sitemap URLs: missing={expected - urls}, extra={urls - expected}')
+    for name in ('404.html', 'robots.txt', 'llms.txt', 'favicon.ico', 'icon.svg'):
         require((base / name).is_file(), f'Missing {name}')
-    print(f'PASS: {len(expected)} localized pages, {references} references, CSS assets, sitemap and 404')
+    error_page = Page()
+    error_page.feed((base / '404.html').read_text())
+    require('noindex' in error_page.robots, '404 page must stay excluded from indexing')
+    print(f'PASS: {len(expected)} indexable localized pages, {references} references, CSS assets, stable favicons, sitemap and noindex 404')
     return sorted(urlsplit(url).path for url in expected)
 
 

@@ -53,7 +53,7 @@ npm start
 - `app/fonts.js` — шрифты через `next/font`: файлы загружаются при сборке и обслуживаются с сайта.
 - `public/serve.json` — годовой кэш для ресурсов `/_next/static/` с хэшем в имени при запуске через `npm start`.
 - `components/BrandMark.jsx` — восьмилучевой геометрический знак в хедере, первом экране и футере.
-- `app/icon.svg`, `app/favicon.ico` — favicon с фирменным знаком и мягким градиентом.
+- `public/icon.svg`, `public/favicon.ico` — favicon с фирменным знаком и мягким градиентом. Постоянные URL без query-параметров заданы в `lib/seo.js` и подключены в обоих корневых layout.
 - `public/brand/rootforce-symbol.svg` — отдельный векторный знак на прозрачном фоне.
 - `dist/` — сохранённая исходная статическая версия; Next.js её не использует. Все дальнейшие изменения вносите в `app/`, `components/` и `lib/`.
 

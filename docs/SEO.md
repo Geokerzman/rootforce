@@ -9,6 +9,8 @@
 - Canonical на собственный URL каждой языковой версии; взаимные hreflang en/de/ru и x-default на английскую версию. Языки не привязаны к отдельным странам.
 - `/sitemap.xml`: 24 URL — три главные, 15 страниц услуг и шесть юридических страниц. Для каждого URL указан lastmod из `lib/content-dates.js`: дата последнего существенного изменения содержимого по истории проекта. При изменении контента обновляйте соответствующую запись. Повторная сборка сама по себе не меняет дату.
 - `/robots.txt`: открытый обход и sitemap; отдельно разрешён OAI-SearchBot для поисковых ответов ChatGPT. Политики обучения моделей в Cloudflare не меняются.
+- Favicon доступен по постоянным адресам `/favicon.ico` и `/icon.svg` без query-параметров; ссылки заданы в обоих языковых layout. Старые ссылки с query-параметрами продолжают получать тот же статический файл. Favicon не добавляется в sitemap страниц.
+- Страница ошибки сохраняет HTTP `404` и `noindex`: исключение такой страницы из индекса в Search Console ожидаемо. Разрешать её индексацию или возвращать `200` ради снятия предупреждения не нужно. Для favicon проверяйте успешную загрузку файла; запрашивать индексацию следует для главной страницы, где указана ссылка на него.
 - JSON-LD на всех 24 страницах: Organization, WebSite и WebPage со стабильными `@id`, canonical URL, языком, видимым заголовком и датой изменения содержимого. На главной дополнительно ItemList с шестью реальными услугами; на страницах услуг — Service и BreadcrumbList. На юридических страницах используется базовый WebPage, связанный с организацией и сайтом: отдельная разметка услуги там не нужна. Нет выдуманных оценок, цен, наград, клиентов или географии обслуживания.
 - `/llms.txt`: краткое описание студии, ссылки на главные страницы и все услуги на EN, DE, RU; юридические документы вынесены в `Optional`. Исходник — `public/llms.txt`, при статической сборке копируется в корень сайта. При изменении услуг и URL обновляйте этот файл вместе с содержимым страниц.
 - Видимые хлебные крошки и связанные услуги. Рекламная услуга остаётся на главной по предыдущему решению владельца.
@@ -51,6 +53,8 @@ Google не требует отдельного `llms.txt`, специально
 
 - [Google: AI features and your website](https://developers.google.com/search/docs/appearance/ai-features)
 - [Google: localized versions](https://developers.google.com/search/docs/specialty/international/localized-versions)
+- [Google: favicon in search results](https://developers.google.com/search/docs/appearance/favicon-in-search)
+- [Google: troubleshooting 404 errors](https://developers.google.com/search/docs/crawling-indexing/troubleshoot-crawling-errors)
 - [Google: Organization structured data](https://developers.google.com/search/docs/appearance/structured-data/organization)
 - [Schema.org: WebPage](https://schema.org/WebPage)
 - [llms.txt: формат и назначение](https://llmstxt.org/)
