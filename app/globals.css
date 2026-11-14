@@ -115,30 +115,6 @@ header nav .nav-cta {
   letter-spacing: inherit;
 }
 
-.landing-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  height: 104px;
-}
-
-.landing-header .brand {
-  justify-self: start;
-  padding: 0;
-  border: 0;
-  background: none;
-}
-
-.header-brand-mark {
-  display: block;
-  width: 86px;
-  height: 86px;
-}
-
-.landing-header nav {
-  justify-self: end;
-  gap: 8px;
-}
-
 .landing-header nav .nav-cta {
   display: inline-flex;
   align-items: center;
@@ -147,10 +123,6 @@ header nav .nav-cta {
   min-height: 44px;
   border-radius: 0;
   text-align: center;
-}
-
-.landing-header + main .hero {
-  padding-top: 137px;
 }
 
 .hero-title-end {
@@ -167,22 +139,16 @@ header nav .nav-cta {
   transform: none;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 560px) {
   .landing-header {
-    height: 112px;
-    padding-inline: 5%;
-  }
-
-  .header-brand-mark {
-    width: clamp(56px, 13vw, 78px);
-    height: auto;
+    height: 104px;
+    gap: 10px;
   }
 
   .landing-header nav {
     flex-direction: column;
     align-items: flex-end;
-    max-width: 100%;
-    gap: 5px;
+    min-width: 0;
   }
 
   .landing-header nav .nav-cta {
@@ -192,18 +158,8 @@ header nav .nav-cta {
     white-space: normal;
   }
 
-  .landing-header .language-select {
-    max-width: 100%;
-  }
-
-  .landing-header .language-select select {
-    width: 108px;
-    max-width: 100%;
-    font-size: 12px;
-  }
-
   .landing-header + main .hero {
-    padding-top: 139px;
+    padding-top: 131px;
   }
 }
 

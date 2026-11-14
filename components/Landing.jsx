@@ -26,8 +26,7 @@ export default function Landing({ locale }) {
   return <Brief labels={t.brief} locale={locale}>
     <StructuredData data={homeStructuredData(locale)} />
     <header className="landing-header">
-      <Brand label={t.homeLabel} showSymbol={false} />
-      <BrandMark className="header-brand-mark" framed />
+      <Brand label={t.homeLabel} />
       <nav aria-label={t.navigation}>
         <BriefTrigger className="nav-cta">{t.nav.contact} <span aria-hidden="true">↗</span></BriefTrigger>
         <LanguageSelect locale={locale} label={t.language} />
