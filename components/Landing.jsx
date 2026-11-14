@@ -1,4 +1,4 @@
-import Brief from '@/components/Brief';
+import Brief, { BriefTrigger } from '@/components/Brief';
 import Brand from '@/components/Brand';
 import BrandMark from '@/components/BrandMark';
 import Cloudscape from '@/components/Cloudscape';
@@ -20,15 +20,16 @@ function Lines({ lines }) {
 
 export default function Landing({ locale }) {
   const t = messages[locale];
+  const [titleStart, titleMiddle, titleEnd] = t.hero.title;
+  const lastWordStart = titleEnd.lastIndexOf(' ') + 1;
 
-  return <>
+  return <Brief labels={t.brief} locale={locale}>
     <StructuredData data={homeStructuredData(locale)} />
-    <header>
-      <Brand label={t.homeLabel} />
+    <header className="landing-header">
+      <Brand label={t.homeLabel} showSymbol={false} />
+      <BrandMark className="header-brand-mark" framed />
       <nav aria-label={t.navigation}>
-        <a href="#approach">{t.nav.approach}</a>
-        <a href="#process">{t.nav.process}</a>
-        <a className="nav-cta" href="#contact">{t.nav.contact}</a>
+        <BriefTrigger className="nav-cta">{t.nav.contact} <span aria-hidden="true">↗</span></BriefTrigger>
         <LanguageSelect locale={locale} label={t.language} />
       </nav>
     </header>
@@ -42,7 +43,12 @@ export default function Landing({ locale }) {
         </div>
         <div className="hero-copy">
           <p className="eyebrow mono">{t.hero.eyebrow}</p>
-          <h1 className="hero-title">{t.hero.title[0]}{' '}<br />{t.hero.title[1]}<span className="serif">{t.hero.title[2]}</span><BrandMark className="hero-brand-mark" /></h1>
+          <h1 className="hero-title">
+            {titleStart}{' '}<br />{titleMiddle}
+            <span className="serif">{titleEnd.slice(0, lastWordStart)}<span className="hero-title-end">
+              {titleEnd.slice(lastWordStart)}<BrandMark className="hero-brand-mark" />
+            </span></span>
+          </h1>
           <p className="hero-offer">{t.hero.offer}</p>
           <div className="hero-bottom"><p><Lines lines={t.hero.description} /></p><a className="button dark" href="#approach">{t.hero.cta}<span>↓</span></a></div>
         </div>
@@ -80,7 +86,7 @@ export default function Landing({ locale }) {
           <p className="eyebrow">{t.contact.eyebrow}</p>
           <h2>{t.contact.title[0]}<br />{t.contact.title[1]}<em>{t.contact.title[2]}</em></h2>
           <p><Lines lines={t.contact.description} /></p>
-          <Brief labels={t.brief} locale={locale} />
+          <BriefTrigger className="button dark" id="brief-open">{t.brief.open} <span aria-hidden="true">↗</span></BriefTrigger>
           <span className="garden-note mono">{t.contact.note}</span>
         </div>
         <Flowers />
@@ -88,5 +94,5 @@ export default function Landing({ locale }) {
       </section>
     </main>
     <VisualEffects labels={t.motion} />
-  </>;
+  </Brief>;
 }

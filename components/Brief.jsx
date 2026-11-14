@@ -1,9 +1,19 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-export default function Brief({ labels, locale }) {
+const BriefContext = createContext(null);
+
+export function BriefTrigger({ children, className, id }) {
+  const open = useContext(BriefContext);
+
+  return <button type="button" className={className} id={id} aria-haspopup="dialog" aria-controls="brief" onClick={open}>
+    {children}
+  </button>;
+}
+
+export default function Brief({ labels, locale, children }) {
   const dialog = useRef(null);
   const sending = useRef(false);
   const lastAttempt = useRef(0);
@@ -11,6 +21,11 @@ export default function Brief({ labels, locale }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
+
+  function openBrief() {
+    if (!sending.current) setStatus('');
+    dialog.current?.showModal();
+  }
 
   async function sendRequest(event) {
     event.preventDefault();
@@ -66,8 +81,8 @@ export default function Brief({ labels, locale }) {
     }
   }
 
-  return <>
-    <button className="button dark" id="brief-open" onClick={() => { if (!sending.current) setStatus(''); dialog.current.showModal(); }}>{labels.open} <span>↗</span></button>
+  return <BriefContext.Provider value={openBrief}>
+    {children ?? <BriefTrigger className="button dark" id="brief-open">{labels.open} <span aria-hidden="true">↗</span></BriefTrigger>}
     {mounted && createPortal(<dialog ref={dialog} id="brief" aria-labelledby="brief-title" onClick={closeOnBackdrop}>
       <form id="brief-form" onSubmit={sendRequest} aria-busy={status === 'sending'}>
         <button type="button" id="brief-close" className="close" aria-label={labels.close} onClick={() => dialog.current.close()}>×</button>
@@ -82,5 +97,5 @@ export default function Brief({ labels, locale }) {
         <p id="brief-status" role="status" aria-live="polite">{status ? labels[status] : ''}</p>
       </form>
     </dialog>, document.body)}
-  </>;
+  </BriefContext.Provider>;
 }
