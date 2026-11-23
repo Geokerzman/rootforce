@@ -34,7 +34,9 @@ export default function Landing({ locale }) {
     </header>
     <main>
       <section id="home" className="hero">
-        <Cloudscape priority />
+        <div className="hero-backdrop" aria-hidden="true">
+          <canvas className="hero-saturn" />
+        </div>
         <div className="hero-top mono"><span><i className="dot" />{t.hero.studio}</span><span>{t.hero.journey}</span></div>
         <div className="window">
           <div className="window-title mono"><span>~/rootforce — {t.hero.terminal}</span><span aria-hidden="true">− &nbsp; □ &nbsp; ×</span></div>

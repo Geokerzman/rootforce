@@ -2,11 +2,16 @@
 
 import { useEffect } from 'react';
 import { setupAscii } from '@/lib/ascii';
+import { setupSaturn } from '@/lib/saturn';
 
 export default function VisualEffects({ labels }) {
   useEffect(() => {
-    const cleanup = setupAscii(labels);
-    return cleanup;
+    const saturn = setupSaturn(document.querySelector('.hero-saturn'));
+    const cleanup = setupAscii(labels, saturn?.setMotion);
+    return () => {
+      cleanup();
+      saturn?.disconnect();
+    };
   }, [labels]);
 
   useEffect(() => {
