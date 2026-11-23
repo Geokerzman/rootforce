@@ -35,7 +35,7 @@ export default function LegalPage({ locale, document }) {
 
   return <div className="legal-page">
     <StructuredData data={legalStructuredData(locale, document)} />
-    <header className="legal-header">
+    <header className="site-header legal-header">
       <Brand label={t.homeLabel} href={home} />
       <nav className="legal-header-nav" aria-label={t.navigation}>
         <a className="legal-home-link" href={home}>{ui.homeShort}</a>

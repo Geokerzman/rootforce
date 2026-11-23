@@ -1,12 +1,5 @@
-.service-page { background: #f9f9f4; }
-.service-page .service-header {
-  position: relative;
-  height: 96px;
-  padding: 0 5%;
-  background: #f9f9f4;
-  border-bottom: 1px solid #d9ddd1;
-}
-.service-header nav { gap: 22px; }
+.service-page { padding-top: var(--site-header-height); background: #f9f9f4; }
+.service-header { background: #f9f9f4; }
 .service-header .service-header-home { font-size: 14px; }
 .service-page .service-hero {
   min-height: 0;
@@ -101,6 +94,9 @@
 .service-contact .garden-copy > p:not(.eyebrow) { max-width: 650px; margin: 25px auto 30px; font-size: 17px; line-height: 1.8; }
 .service-page .site-footer { position: relative; z-index: 1; }
 
+@media (min-width: 701px) {
+  .service-header nav { gap: 22px; }
+}
 @media (min-width: 1700px) {
   .service-page .service-scope, .service-process, .service-faq, .service-related { padding-left: max(7%, calc((100vw - 1440px) / 2)); padding-right: max(7%, calc((100vw - 1440px) / 2)); }
 }
@@ -117,9 +113,6 @@
   .service-faq { gap: 5%; }
 }
 @media (max-width: 700px) {
-  .service-page .service-header { height: 82px; padding-inline: 6%; }
-  .service-header nav { gap: 10px; }
-  .service-header .service-header-home, .service-header .nav-cta { display: none; }
   .service-page .service-hero { padding: 24px 6% 0; }
   .service-breadcrumb { font-size: 11px; }
   .service-hero-grid { grid-template-columns: minmax(0, 1fr); padding: 35px 0 40px; gap: 45px; }

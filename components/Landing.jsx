@@ -25,7 +25,7 @@ export default function Landing({ locale }) {
 
   return <Brief labels={t.brief} locale={locale}>
     <StructuredData data={homeStructuredData(locale)} />
-    <header className="landing-header">
+    <header className="site-header landing-header">
       <Brand label={t.homeLabel} />
       <nav aria-label={t.navigation}>
         <BriefTrigger className="nav-cta">{t.nav.contact} <span aria-hidden="true">↗</span></BriefTrigger>
@@ -33,7 +33,7 @@ export default function Landing({ locale }) {
       </nav>
     </header>
     <main>
-      <section id="home" className="hero">
+      <section id="home" className="hero home-hero">
         <div className="hero-backdrop" aria-hidden="true">
           <canvas className="hero-saturn" />
         </div>

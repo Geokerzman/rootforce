@@ -26,7 +26,7 @@ export default function ServicePage({ locale, slug }) {
 
   return <div className={`service-page service-page--${slug}`}>
     <StructuredData data={serviceStructuredData(locale, slug)} />
-    <header className="service-header">
+    <header className="site-header service-header">
       <Brand label={t.homeLabel} href={home} />
       <nav aria-label={t.navigation}>
         <a className="service-header-home" href={`${home}#approach`}>{ui.back}</a>
