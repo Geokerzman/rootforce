@@ -1,8 +1,7 @@
-import Brand from '@/components/Brand';
-import LanguageSelect from '@/components/LanguageSelect';
 import SiteFooter from '@/components/SiteFooter';
+import SiteHeader from '@/components/SiteHeader';
 import StructuredData from '@/components/StructuredData';
-import { localePath, messages } from '@/lib/i18n';
+import { localePath } from '@/lib/i18n';
 import { legalDocuments, legalUi, provider } from '@/lib/legal';
 import { legalStructuredData } from '@/lib/structured-data';
 import './LegalPage.css';
@@ -28,20 +27,13 @@ function Contact({ locale }) {
 }
 
 export default function LegalPage({ locale, document }) {
-  const t = messages[locale];
   const ui = legalUi[locale];
   const content = legalDocuments[locale][document];
   const home = localePath(locale);
 
   return <div className="legal-page">
     <StructuredData data={legalStructuredData(locale, document)} />
-    <header className="site-header legal-header">
-      <Brand label={t.homeLabel} href={home} />
-      <nav className="legal-header-nav" aria-label={t.navigation}>
-        <a className="legal-home-link" href={home}>{ui.homeShort}</a>
-        <LanguageSelect locale={locale} label={t.language} pagePath={document} />
-      </nav>
-    </header>
+    <SiteHeader locale={locale} document={document} />
     <main className="legal-main">
       <div className="legal-intro">
         <a className="legal-back" href={home}>← {ui.home}</a>

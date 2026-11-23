@@ -1,11 +1,10 @@
-import Brand from '@/components/Brand';
 import BrandMark from '@/components/BrandMark';
 import Brief from '@/components/Brief';
 import Cloudscape from '@/components/Cloudscape';
 import Flowers from '@/components/Flowers';
-import LanguageSelect from '@/components/LanguageSelect';
 import ServiceIcon from '@/components/ServiceIcon';
 import SiteFooter from '@/components/SiteFooter';
+import SiteHeader from '@/components/SiteHeader';
 import VisualEffects from '@/components/VisualEffects';
 import StructuredData from '@/components/StructuredData';
 import { serviceStructuredData } from '@/lib/structured-data';
@@ -26,20 +25,13 @@ export default function ServicePage({ locale, slug }) {
 
   return <div className={`service-page service-page--${slug}`}>
     <StructuredData data={serviceStructuredData(locale, slug)} />
-    <header className="site-header service-header">
-      <Brand label={t.homeLabel} href={home} />
-      <nav aria-label={t.navigation}>
-        <a className="service-header-home" href={`${home}#approach`}>{ui.back}</a>
-        <a className="nav-cta" href="#contact">{t.nav.contact}</a>
-        <LanguageSelect locale={locale} label={t.language} pagePath={`services/${slug}`} />
-      </nav>
-    </header>
+    <SiteHeader locale={locale} service={slug} contactAction={<a className="nav-cta" href="#contact">{t.nav.contact}</a>} />
     <main>
       <section className="hero service-hero" id="home">
         <Cloudscape priority />
         <div className="service-hero-inner">
           <nav className="service-breadcrumb mono" aria-label={{ en: 'Breadcrumb', de: 'Brotkrumennavigation', ru: 'Навигационная цепочка' }[locale]}>
-            <a href={home}>{{ en: 'Home', de: 'Startseite', ru: 'Главная' }[locale]}</a><span aria-hidden="true">/</span><span aria-current="page">{content.name}</span>
+            <a href={home}>{t.nav.home}</a><span aria-hidden="true">/</span><span aria-current="page">{content.name}</span>
           </nav>
           <div className="service-hero-grid">
             <div className="service-hero-copy">

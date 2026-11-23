@@ -1,12 +1,11 @@
 import Brief, { BriefTrigger } from '@/components/Brief';
-import Brand from '@/components/Brand';
 import BrandMark from '@/components/BrandMark';
 import Cloudscape from '@/components/Cloudscape';
 import Flowers from '@/components/Flowers';
-import LanguageSelect from '@/components/LanguageSelect';
 import ServiceIcon from '@/components/ServiceIcon';
 import SunArt from '@/components/SunArt';
 import SiteFooter from '@/components/SiteFooter';
+import SiteHeader from '@/components/SiteHeader';
 import VisualEffects from '@/components/VisualEffects';
 import { messages } from '@/lib/i18n';
 import { servicePath } from '@/lib/services';
@@ -25,13 +24,9 @@ export default function Landing({ locale }) {
 
   return <Brief labels={t.brief} locale={locale}>
     <StructuredData data={homeStructuredData(locale)} />
-    <header className="site-header landing-header">
-      <Brand label={t.homeLabel} />
-      <nav aria-label={t.navigation}>
-        <BriefTrigger className="nav-cta">{t.nav.contact} <span aria-hidden="true">↗</span></BriefTrigger>
-        <LanguageSelect locale={locale} label={t.language} />
-      </nav>
-    </header>
+    <SiteHeader locale={locale} contactAction={
+      <BriefTrigger className="nav-cta">{t.nav.contact} <span aria-hidden="true">↗</span></BriefTrigger>
+    } />
     <main>
       <section id="home" className="hero home-hero">
         <div className="hero-backdrop" aria-hidden="true">
