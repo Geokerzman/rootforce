@@ -1,0 +1,35 @@
+.hero-sky {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: var(--sky-opacity, 1);
+  mask-image: var(--sky-mask, none);
+}
+
+.hero-sky img,
+.hero-sky-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--sky-position, center);
+}
+
+.hero-sky-video {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-sky-video[data-playing] { opacity: 1; }
+}
+
+.hero-sky::after {
+  position: absolute;
+  inset: 0;
+  background: var(--sky-shade, none);
+  content: '';
+}

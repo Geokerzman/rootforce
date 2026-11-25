@@ -2,6 +2,7 @@ import Brief, { BriefTrigger } from '@/components/Brief';
 import BrandMark from '@/components/BrandMark';
 import Cloudscape from '@/components/Cloudscape';
 import Flowers from '@/components/Flowers';
+import HeroSky from '@/components/HeroSky';
 import ServiceIcon from '@/components/ServiceIcon';
 import SunArt from '@/components/SunArt';
 import SiteFooter from '@/components/SiteFooter';
@@ -29,6 +30,7 @@ export default function Landing({ locale }) {
     } />
     <main>
       <section id="home" className="hero home-hero">
+        <HeroSky animated />
         <div className="hero-backdrop" aria-hidden="true">
           <canvas className="hero-saturn" />
         </div>

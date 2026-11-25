@@ -1,3 +1,4 @@
+import HeroSky from '@/components/HeroSky';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
 import StructuredData from '@/components/StructuredData';
@@ -36,6 +37,7 @@ export default function LegalPage({ locale, document }) {
     <SiteHeader locale={locale} document={document} />
     <main className="legal-main">
       <div className="legal-intro">
+        <HeroSky />
         <a className="legal-back" href={home}>← {ui.home}</a>
         <p className="legal-kicker mono">{ui.eyebrow}</p>
         <h1>{content.title}</h1>

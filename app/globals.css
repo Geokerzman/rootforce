@@ -434,9 +434,11 @@ html {
 }
 
 .home-hero {
+  --sky-shade: linear-gradient(180deg, #101a3a10, #121d4540 38%, #0c1533a6 75%, #080e24 100%);
   padding-top: calc(var(--site-header-height) + 33px);
-  color: #f0f0ee;
-  background: #1e1e1e;
+  color: #f4f5ff;
+  background: #101a3a;
+  border-bottom: 1px solid #95a6df36;
 }
 
 .hero-backdrop {
@@ -450,7 +452,7 @@ html {
   content: '';
   position: absolute;
   inset: var(--site-header-height) 0 0;
-  background-image: radial-gradient(circle, #e2e5ec20 .6px, transparent .85px);
+  background-image: radial-gradient(circle, #ccd9ff26 .6px, transparent .85px);
   background-size: 8px 8px;
   mask-image: radial-gradient(ellipse, transparent 30%, #000 100%);
 }
@@ -484,7 +486,7 @@ html {
 
 .home-hero .hero-top,
 .home-hero .hero-footer {
-  color: #c4c5c6;
+  color: #d7def5;
 }
 
 .home-hero .hero-top .dot {
@@ -492,33 +494,33 @@ html {
 }
 
 .home-hero .window {
-  color: #e9e9e8;
-  background: #282829;
-  border-color: #dddfe16b;
-  box-shadow: 5px 5px 0 #141414a6;
+  color: #e8edff;
+  background: #192444;
+  border-color: #a3b7e980;
+  box-shadow: 5px 5px 0 #080e268c;
 }
 
 .home-hero .window-title {
-  color: #dfdce3;
-  background: #1c1c1d;
-  border-bottom: 1px solid #d7d5da32;
+  color: #dce4fc;
+  background: #111a35;
+  border-bottom: 1px solid #a3b7e94d;
 }
 
 .home-hero .hero-copy > .eyebrow {
-  color: #d4d4d6;
-  background: #1e1e1eeb;
+  color: #e3e9ff;
+  background: #111a35bf;
 }
 
 .home-hero h1,
 .home-hero .hero-bottom p,
 .home-hero .hero-offer {
-  text-shadow: 0 1px 9px #1e1e1e, 0 1px 26px #1e1e1e;
+  text-shadow: 0 1px 16px #080e28c9;
 }
 
 .home-hero h1 .serif {
-  background-image: linear-gradient(110deg, #c8c9f2, #e7bbd8 50%, #c3dbcc);
+  background-image: linear-gradient(110deg, #cad7ff, #ded1fa 50%, #c3dbcc);
   text-shadow: none;
-  filter: drop-shadow(0 1px 5px #1e1e1e);
+  filter: drop-shadow(0 1px 5px #080e28a6);
 }
 
 .home-hero h1 .hero-brand-mark {
@@ -526,16 +528,16 @@ html {
 }
 
 .home-hero .hero-offer {
-  color: #dededd;
+  color: #e1e7f6;
 }
 
 .home-hero .button {
-  color: #1e1e1e;
-  background: #eeeef0;
+  color: #101a35;
+  background: #eef1ff;
 }
 
 .home-hero .button:hover {
-  background: #d5d5d9;
+  background: #dce5ff;
 }
 
 .home-hero .hero-footer {
@@ -544,8 +546,8 @@ html {
 
 .home-hero .motion-toggle {
   color: inherit;
-  background: #252526;
-  border-color: #e7e9eb55;
+  background: #192444;
+  border-color: #a3b7e980;
 }
 
 .home-hero:has(.motion-toggle[aria-pressed="false"]) .blink {
@@ -554,6 +556,7 @@ html {
 
 @media (max-width: 700px) {
   .home-hero {
+    --sky-position: 58% center;
     padding-top: calc(var(--site-header-height) + 25px);
   }
 
@@ -597,9 +600,14 @@ html {
     animation: studio-sun-turn 54s linear infinite reverse, studio-sun-breathe 5s ease-in-out infinite alternate;
   }
 
-  .studio-sun:not([data-visible]) :is(.studio-sun-core, .studio-sun-rays) {
+  .studio-sun:not([data-visible]) :is(.studio-sun-core, .studio-sun-rays),
+  main:has(.home-hero .motion-toggle[aria-pressed="false"]) .studio-sun :is(.studio-sun-core, .studio-sun-rays) {
     animation-play-state: paused;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-footer .motion-toggle { display: none; }
 }
 
 @keyframes studio-sun-turn {

@@ -2,11 +2,14 @@
 .service-header { background: #f9f9f4; }
 .service-header .service-header-home { font-size: 14px; }
 .service-page .service-hero {
+  --sky-opacity: .62;
+  --sky-position: center 32%;
+  --sky-mask: radial-gradient(ellipse 75% 95% at 94% 18%, #000 4%, #0009 45%, transparent 96%);
+  --sky-shade: linear-gradient(150deg, #e3e9f6a6, #dce5f996 65%, #f7f8f5 98%);
   min-height: 0;
   padding: 32px 5% 0;
-  background: #f7f8f5;
+  background: linear-gradient(125deg, #f7f8f5 38%, #edf0f8 78%, #f7f8f5);
 }
-.service-hero > .cloudscape { opacity: .26; background-size: 100% 650px; }
 .service-hero-inner { position: relative; z-index: 2; max-width: 1440px; margin: auto; }
 .service-breadcrumb { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 12px; padding: 8px 0; font-size: 12px; line-height: 1.7; }
 .service-page .service-breadcrumb a { display: inline; text-decoration: underline; text-underline-offset: 4px; }
@@ -113,7 +116,11 @@
   .service-faq { gap: 5%; }
 }
 @media (max-width: 700px) {
-  .service-page .service-hero { padding: 24px 6% 0; }
+  .service-page .service-hero {
+    --sky-opacity: .45;
+    --sky-mask: radial-gradient(ellipse 105% 61% at 100% 24%, #000, transparent 92%);
+    padding: 24px 6% 0;
+  }
   .service-breadcrumb { font-size: 11px; }
   .service-hero-grid { grid-template-columns: minmax(0, 1fr); padding: 35px 0 40px; gap: 45px; }
   .service-kicker { font-size: 10px; margin-bottom: 20px; }

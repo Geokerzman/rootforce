@@ -2,6 +2,7 @@ import BrandMark from '@/components/BrandMark';
 import Brief from '@/components/Brief';
 import Cloudscape from '@/components/Cloudscape';
 import Flowers from '@/components/Flowers';
+import HeroSky from '@/components/HeroSky';
 import ServiceIcon from '@/components/ServiceIcon';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
@@ -28,7 +29,7 @@ export default function ServicePage({ locale, slug }) {
     <SiteHeader locale={locale} service={slug} contactAction={<a className="nav-cta" href="#contact">{t.nav.contact}</a>} />
     <main>
       <section className="hero service-hero" id="home">
-        <Cloudscape priority />
+        <HeroSky animated />
         <div className="service-hero-inner">
           <nav className="service-breadcrumb mono" aria-label={{ en: 'Breadcrumb', de: 'Brotkrumennavigation', ru: 'Навигационная цепочка' }[locale]}>
             <a href={home}>{t.nav.home}</a><span aria-hidden="true">/</span><span aria-current="page">{content.name}</span>
