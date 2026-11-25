@@ -54,6 +54,13 @@
 .service-principles > span { display: flex; gap: 14px; align-items: baseline; }
 .service-principle-index { color: #77933c; }
 .service-page .service-scope { padding: 32px 7% 80px; background: #151e26; color: #edf0e9; }
+.service-scope > .hero-sky {
+  --sky-height: min(100%, 790px);
+  --sky-opacity: .82;
+  --sky-shade:
+    linear-gradient(180deg, #151e260d, #151e2659 46%, #151e26 100%),
+    linear-gradient(90deg, #151e26e6, #151e2666 57%, transparent);
+}
 .service-section-top { display: flex; justify-content: space-between; gap: 20px; font-size: 10px; color: #b4c2c6; }
 .service-problem { max-width: 870px; padding: 80px 0 52px; }
 .service-problem .service-kicker { color: #b4d8cd; }
@@ -136,6 +143,10 @@
   .service-hero-footer > span { max-width: 100%; }
   .service-principles { padding: 25px 6%; flex-direction: column; gap: 15px; font-size: 11px; }
   .service-page .service-scope { padding: 25px 6% 55px; }
+  .service-scope > .hero-sky {
+    --sky-height: 660px;
+    --sky-shade: linear-gradient(155deg, #151e26b8, #151e2666 40%, #151e26 95%);
+  }
   .service-section-top { font-size: 8px; }
   .service-section-top > span:last-child { display: none; }
   .service-problem { padding: 50px 0 35px; }

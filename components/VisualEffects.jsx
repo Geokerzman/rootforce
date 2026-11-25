@@ -8,7 +8,7 @@ import { setupSaturn } from '@/lib/saturn';
 export default function VisualEffects({ labels }) {
   useEffect(() => {
     const saturn = setupSaturn(document.querySelector('.hero-saturn'));
-    const sky = setupHeroSky(document.querySelector('.hero-sky-video'));
+    const sky = setupHeroSky(document.querySelectorAll('.hero-sky-video'));
     const cleanup = setupAscii(labels, enabled => {
       saturn?.setMotion(enabled);
       sky?.setMotion(enabled);

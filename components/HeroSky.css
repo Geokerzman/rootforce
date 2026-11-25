@@ -1,7 +1,8 @@
 .hero-sky {
   position: absolute;
-  z-index: -1;
-  inset: 0;
+  z-index: -2;
+  inset: 0 0 auto;
+  height: var(--sky-height, 100%);
   display: block;
   overflow: hidden;
   pointer-events: none;
@@ -32,4 +33,18 @@
   inset: 0;
   background: var(--sky-shade, none);
   content: '';
+}
+
+.studio > .hero-sky {
+  --sky-height: clamp(650px, 65vw, 950px);
+  --sky-shade:
+    linear-gradient(180deg, #0d132716, #0e172e46 42%, #0c1015 100%),
+    linear-gradient(90deg, #111a3db8, #131e4133 52%, transparent 90%);
+}
+
+@media (max-width: 700px) {
+  .studio > .hero-sky {
+    --sky-height: 720px;
+    --sky-shade: linear-gradient(155deg, #111a3db8, #111a3d66 42%, #0c1015 93%);
+  }
 }

@@ -30,7 +30,6 @@ export default function Landing({ locale }) {
     } />
     <main>
       <section id="home" className="hero home-hero">
-        <HeroSky animated />
         <div className="hero-backdrop" aria-hidden="true">
           <canvas className="hero-saturn" />
         </div>
@@ -53,7 +52,7 @@ export default function Landing({ locale }) {
         <div className="hero-footer mono"><span>{t.hero.chapter}</span><span>{t.hero.motto}</span><a href="#approach">{t.hero.scroll}</a><button className="motion-toggle" type="button" aria-pressed="true">{t.motion.active}</button></div>
       </section>
       <section id="approach" className="approach studio">
-        <Cloudscape />
+        <HeroSky />
         <div className="section-label mono"><span>{t.studio.chapter}</span><span>{t.studio.craft}</span></div>
         <div className="studio-intro">
           <div><p className="mono studio-kicker">{t.studio.kicker}</p><h2>{t.studio.title[0]}<br />{t.studio.title[1]}<span>{t.studio.title[2]}</span></h2><p className="studio-lead"><Lines lines={t.studio.lead} /></p></div>

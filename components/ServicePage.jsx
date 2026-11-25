@@ -29,7 +29,7 @@ export default function ServicePage({ locale, slug }) {
     <SiteHeader locale={locale} service={slug} contactAction={<a className="nav-cta" href="#contact">{t.nav.contact}</a>} />
     <main>
       <section className="hero service-hero" id="home">
-        <HeroSky animated />
+        <HeroSky priority />
         <div className="service-hero-inner">
           <nav className="service-breadcrumb mono" aria-label={{ en: 'Breadcrumb', de: 'Brotkrumennavigation', ru: 'Навигационная цепочка' }[locale]}>
             <a href={home}>{t.nav.home}</a><span aria-hidden="true">/</span><span aria-current="page">{content.name}</span>
@@ -64,6 +64,7 @@ export default function ServicePage({ locale, slug }) {
       <div className="service-principles mono">{ui.principles.map((text, i) => <span key={text}><span className="service-principle-index">{number(i)}</span>{text}</span>)}</div>
 
       <section className="approach service-scope" id="scope">
+        <HeroSky />
         <div className="service-section-top mono"><span>01 / {ui.scope}</span><span>ROOTFORCE / DIGITAL CRAFT</span></div>
         <div className="service-problem"><p className="service-kicker mono">{content.name}</p><h2>{content.problemTitle}</h2><p>{content.problem}</p></div>
         <div className="service-scope-grid">

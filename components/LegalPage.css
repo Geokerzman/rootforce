@@ -27,15 +27,6 @@
   padding: calc(var(--site-header-height) + 64px) 5% 100px;
 }
 
-.legal-intro {
-  --sky-opacity: .22;
-  --sky-position: right 24%;
-  --sky-mask: radial-gradient(ellipse 58% 70% at 85% 48%, #000 10%, transparent 88%);
-  --sky-shade: #edf1de66;
-  position: relative;
-  isolation: isolate;
-}
-
 .legal-back {
   display: inline-flex;
   align-items: center;
@@ -359,7 +350,6 @@
 
   .legal-header-nav,
   .legal-back,
-  .legal-intro > .hero-sky,
   .legal-sidebar,
   .legal-mobile-contents,
   .legal-page .site-footer {
