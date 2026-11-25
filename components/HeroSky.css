@@ -39,7 +39,7 @@
   --sky-height: clamp(650px, 65vw, 950px);
   --sky-shade:
     linear-gradient(180deg, #0d132716, #0e172e46 42%, #0c1015 100%),
-    linear-gradient(90deg, #111a3db8, #131e4133 52%, transparent 90%);
+    linear-gradient(90deg, #111a3d9e, #131e4133 54%, transparent 96%);
 }
 
 @media (max-width: 700px) {
