@@ -25,6 +25,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  .hero-sky-video { transition: opacity .45s ease-out; }
   .hero-sky-video[data-playing] { opacity: 1; }
 }
 

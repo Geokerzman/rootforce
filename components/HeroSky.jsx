@@ -10,6 +10,6 @@ export default function HeroSky({ priority = false }) {
         fetchPriority={priority ? 'high' : undefined} />
     </picture>
     <video className="hero-sky-video" muted loop playsInline preload="none"
-      data-src="/images/hero-sky-clouds.mp4" data-mobile-src="/images/hero-sky-clouds-mobile.mp4" />
+      data-src="/images/hero-sky-focus.mp4" data-mobile-src="/images/hero-sky-focus-mobile.mp4" />
   </div>;
 }
